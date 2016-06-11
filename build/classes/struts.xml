@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd"
+>
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+	<package name="Base1" extends="struts-default"><!-- ,json-default -->
+		<interceptors>
+			<interceptor name="login" class="cn.test.interceptor.LoginInterceptor" />
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="login"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<action name="LoginAction" class="loginAction">
+			<result name="admin">/message.jsp</result>
+			<!-- <result name="admin">/widget.jsp</result> -->
+			<!-- <result name="admin">/admin.jsp</result> -->
+			<result name="user">/user.jsp</result>
+			<result name="WrongPassword">/WrongPassword.jsp</result>
+
+
+		</action>
+		<action name="Login_ReturnAction" class="loginAction" method="returnLogin">
+			<result name="return">/login.jsp</result>
+
+		</action>
+
+		<action name="Login_OutAction" class="loginAction" method="out">
+			<result name="out">/login.jsp</result>
+
+		</action>
+		<action name="Message_ReplyAction" class="messageAction"
+			method="replypage">
+			<result name="success">/message_reply.jsp</result>
+
+			<result name="logincheck_fail">/login.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="login"></interceptor-ref>
+
+		</action>
+		<action name="Message_PageAction" class="messageAction" method="messagepage">
+
+			<result name="success">/message.jsp</result>
+
+			<result name="logincheck_fail">/login.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="login"></interceptor-ref>
+
+		</action>
+		<action name="Searching_TitleAction" class="searchingAction" method="title">
+			<result name="success">/message_title.jsp</result>
+
+			<result name="logincheck_fail">/login.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="login"></interceptor-ref>
+
+		</action>
+		<action name="Regist_CheckAction" class="registAction">
+			<result name="success">/regist_success.jsp</result>
+			<result name="fail">/regist_fail.jsp</result>
+
+		</action>
+		<action name="RegistAction" class="registAction" method="regist">
+
+			<result name="regist">/regist.jsp</result>
+
+		</action>
+		<action name="Regist_ReturnAction" class="registAction" method="regist">
+
+			<result name="regist">/regist.jsp</result>
+
+		</action>
+
+
+		<action name="Reply_AddAction" class="replyAction" method="add">
+
+			<result name="success">/message_reply.jsp</result>
+			<result name="logincheck_fail">/login.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="login"></interceptor-ref>
+
+		</action>
+
+
+		<action name="Message_DeleteAction" class="messageAction"
+			method="delete">
+
+			<result name="success">/message.jsp</result>
+
+			<result name="logincheck_fail">/login.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="login"></interceptor-ref>
+
+		</action>
+
+		<action name="Reply_DeleteAction" class="replyAction" method="delete">
+
+			<result name="success">/message_reply.jsp</result>
+
+			<result name="logincheck_fail">/login.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="login"></interceptor-ref>
+
+
+		</action>
+		
+		<action name="Message_AddAction" class="messageAction" method="add">
+
+			<result name="success">/edit.jsp</result>
+
+
+
+
+		</action>
+		<action name="Message_AddCheckAction" class="messageAction" method="addcheck">
+
+			<result name="success">/message.jsp</result>
+
+			<result name="logincheck_fail">/login.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="login"></interceptor-ref>
+
+
+		</action>
+
+
+	</package>
+</struts>
+<!-- <action name="LoadingAction" class="loadingAction"> <result name="success" 
+	type="json"> <param name="root">jsonResult</param> </result> </action> -->
