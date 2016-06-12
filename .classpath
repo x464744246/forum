@@ -79,5 +79,8 @@
 	<classpathentry kind="lib" path="D:/study/ReadyFoJavaee/Base1/WebContent/WEB-INF/lib/struts2-spring-plugin-2.3.4.1.jar"/>
 	<classpathentry kind="lib" path="D:/study/ReadyFoJavaee/Base1/WebContent/WEB-INF/lib/jstl.jar"/>
 	<classpathentry kind="lib" path="D:/study/ReadyFoJavaee/Base1/WebContent/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="D:/study/ReadyFoJavaee/Base1/WebContent/WEB-INF/lib/junit4.4.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/test"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
