@@ -74,7 +74,7 @@
 				class="dropdown-toggle " href="#">${sessionScope.u.name}<strong
 					class="caret"></strong></a>
 				<ul class="dropdown-menu pull-right">
-					<li><a href="#">更改密码</a></li>
+					<li><a href="./PasswordChange.action">更改密码</a></li>
 					<li class="divider"></li>
 					<li><a href="./Login_OutAction.action">退出登录</a></li>
 				</ul></li>

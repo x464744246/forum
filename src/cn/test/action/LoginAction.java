@@ -90,6 +90,7 @@ public class LoginAction extends ActionSupport {
 	// ·µ»ØµÇÂ½½çÃæ
 	public String returnLogin() throws Exception {
 
+		ActionContext.getContext().getSession().put("u", null);
 		return "return";
 
 	}

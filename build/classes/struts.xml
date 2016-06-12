@@ -52,7 +52,8 @@
 			<interceptor-ref name="login"></interceptor-ref>
 
 		</action>
-		<action name="Searching_TitleAction" class="searchingAction" method="title">
+		<action name="Searching_TitleAction" class="searchingAction"
+			method="title">
 			<result name="success">/message_title.jsp</result>
 
 			<result name="logincheck_fail">/login.jsp</result>
@@ -108,7 +109,7 @@
 
 
 		</action>
-		
+
 		<action name="Message_AddAction" class="messageAction" method="add">
 
 			<result name="success">/edit.jsp</result>
@@ -117,7 +118,8 @@
 
 
 		</action>
-		<action name="Message_AddCheckAction" class="messageAction" method="addcheck">
+		<action name="Message_AddCheckAction" class="messageAction"
+			method="addcheck">
 
 			<result name="success">/message.jsp</result>
 
@@ -128,6 +130,30 @@
 
 		</action>
 
+	    <action name="PasswordChange" class="passwordChangeAction"
+			method="returncheck">
+
+			<result name="success">/password.jsp</result>
+			
+
+			<result name="logincheck_fail">/login.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="login"></interceptor-ref>
+
+
+		</action>
+		<action name="PasswordChange_CheckAction" class="passwordChangeAction"
+			method="changecheck">
+
+			<result name="success">/change_success.jsp</result>
+			<result name="fail">/change_fail.jsp</result>
+
+			<result name="logincheck_fail">/login.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="login"></interceptor-ref>
+
+
+		</action>
 
 	</package>
 </struts>

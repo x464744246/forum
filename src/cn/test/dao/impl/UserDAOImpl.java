@@ -65,6 +65,12 @@ public class UserDAOImpl<T> implements UserDAO<T> {
 		sessionFactory.getCurrentSession().save(t);
 		
 	}
+	@Override
+	public void updateUser(T t) {
+		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().update(t);
+	}
+
 
 }
 /*

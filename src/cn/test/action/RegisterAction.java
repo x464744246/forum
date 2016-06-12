@@ -31,7 +31,7 @@ public class RegisterAction {
 
 	// ×¢²áÊÂÎñ
 	@Autowired(required = false)
-	@Qualifier("registServiceImpl")
+	@Qualifier("passwordServiceImpl")
 	RegistService registService;
 
 	// Í·Ïñ
