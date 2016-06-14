@@ -2,6 +2,7 @@
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 
 <head>
@@ -20,25 +21,11 @@
 	text-overflow: ellipsis;
 }
 </style>
-<script type="text/javascript">
-	$(document)
-			.ready(
-					function() {
 
-						$('#search_article')
-								.click(
-										function() {
 
-											var keyword = $('#keyword').val();
-											location.href = "./Searching_TitleAction.action?page=1&keyword="
-													+ encodeURI(encodeURI(keyword));
-											// $('#messages').bootstrapTable('refresh', { url: './SearchingAction.action?keyword=' + keyword  });
-										});
-					});
-</script>
 </head>
 
-<body>
+<body >
 
 	<nav class="navbar navbar-default" role="navigation">
 	<div class="navbar-header">
@@ -84,71 +71,61 @@
 
 
 
-	<!--搜索栏-->
-	<div class="container-fluid pull-right">
 
 
-		<div class="input-append ">
-			<input id="keyword" class="span2 " type="text"
-				placeholder="输入 标题,作者id,日期" style="width: 339px; height: 26px">
+	<!--锟斤拷锟斤拷-->
+	<div class="container-fluid">
 
-			<div class="btn-group ">
-				<button class="btn dropdown-toggle" data-toggle="dropdown">
-					Search <span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu pull-right">
-					<li role="presentation"><a id="search_article" role="menuitem"
-						tabindex="-1" href="#">标题</a></li>
-					<li role="presentation"><a role="menuitem" tabindex="-1"
-						href="#">作者id</a></li>
-					<li role="presentation"><a role="menuitem" tabindex="-1"
-						href="#">日期</a></li>
-				</ul>
-			</div>
+		</br>
+	
+		<div class="list-group  container-fluid">
+			<a href="#" class="list-group-item active">
+				<h4 class="list-group-item-heading">我的回复</h4>
+			</a>
 
+			<c:forEach items="${reply}" var="reply">
+				</br>
+
+				<div class="row container-fluid">
+					
+					<div class="col-md-8  col-md-offset-2">
+						<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">${reply.title}</h4>
+							<pre class="list-group-item-text">${reply.replymessage}</pre>
+
+						</a>
+						<button class="btn btn-small btn-link  pull-right" id="delete"
+							type="button"
+							onclick="location='./MAndR_DeleteAction.action?replyid='+'${reply.replyid}'">删除回复</button>
+					</div>
+				</div>
+
+
+			</c:forEach>
 		</div>
 
-	</div>
-	<!--表格-->
-	<div class="container-fluid">
-		<table id="messages" class="table table-hover"
-			style="table-layout: fixed">
-			<thead>
-				<tr>
-					<th>标题</th>
-					<th>作者id</th>
-					<th>日期</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${message}" var="message">
-					<tr>
-						<td class="center"><span class="center"><a
-								href="./Message_ReplyAction.action?messageid=${message.messageid}&page=1">${message.title}</a></span></td>
-						<td class="center"><span class="center">${message.id}</span></td>
-						<td class="center"><span class="center">${message.createdate}</span></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+		</br>
+
+
 		<nav style="text-align: center">
 		<ul class="pagination ">
 			<li><a
-				href="./Searching_TitleAction.action?page=1&keyword=${keyword}">&laquo;</a></li>
+				href="./Message_ReplyAction.action?page=1&messageid=${sessionScope.m.messageid}">&laquo;</a></li>
 			<li><a
-				href="./Searching_TitleAction.action?page=${page-2}&keyword=${keyword}">${page-2}</a></li>
+				href="./Message_ReplyAction.action?page=${page-2}&messageid=${sessionScope.m.messageid}">${page-2}</a></li>
 			<li><a
-				href="./Searching_TitleAction.action?page=${page-1}&keyword=${keyword}">${page-1}</a></li>
+				href="./Message_ReplyAction.action?page=${page-1}&messageid=${sessionScope.m.messageid}">${page-1}</a></li>
 			<li><a
-				href="./Searching_TitleAction.action?page=${page}&keyword=${keyword}">${page}</a></li>
+				href="./Message_ReplyAction.action?page=${page}&messageid=${sessionScope.m.messageid}">${page}</a></li>
 			<li><a
-				href="./Searching_TitleAction.action?page=${page+1}&keyword=${keyword}">${page+1}</a></li>
+				href="./Message_ReplyAction.action?page=${page+1}&messageid=${sessionScope.m.messageid}">${page+1}</a></li>
 			<li><a
-				href="./Searching_TitleAction.action?page=${page+2}&keyword=${keyword}">${page+2}</a></li>
+				href="./Message_ReplyAction.action?page=${page+2}&messageid=${sessionScope.m.messageid}">${page+2}</a></li>
 			<li><a
-				href="./Searching_TitleAction.action?page=-1&keyword=${keyword}">&raquo;</a></li>
+				href="./Message_ReplyAction.action?page=-1&messageid=${sessionScope.m.messageid}">&raquo;</a></li>
 		</ul>
 		</nav>
+		
 	</div>
 </body>
 

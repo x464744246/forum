@@ -26,8 +26,8 @@ public class LoginServiceImpl implements LoginService{
    	private ReplyDAO replydao ;*/
     
 	public User loginCheck(User user) {
-
-		User u = (User)this.userdao.getById(user.getId());
+        
+		User u = (User)this.userdao.get(user);
 		System.out.println("333");
 		if (user.getPassword().equals(u.getPassword())) {
 	

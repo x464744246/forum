@@ -2,10 +2,10 @@ package cn.test.dao;
 
 import java.util.List;
 
-public interface UserDAO<T> {
+public interface UserDAO<T> /*extends BaseDAO<T>*/{
 
 	// 查找用户
-	T getById(String id);
+	public T get(T t);
 
 	// id查找用户
 	public List<T> getUsersById(String id);

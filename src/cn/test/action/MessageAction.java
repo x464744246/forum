@@ -125,7 +125,7 @@ public class MessageAction extends ActionSupport {
 		message = messageService.getMessages(cpage, pagesize);
 		if (cpage < 3)
 			page = 3;
-		else if (cpage > (pagecount - 2))
+		else if (cpage > (pagecount - 2)&&pagecount>=5)
 			page = pagecount - 2;
 		else
 			page = cpage;
@@ -151,7 +151,7 @@ public class MessageAction extends ActionSupport {
 
 		if (cpage < 3)
 			page = 3;
-		else if (cpage > (pagecount - 2))
+		else if (cpage > (pagecount - 2)&&pagecount>=5)
 			page = pagecount - 2;
 		else
 			page = cpage;

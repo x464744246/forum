@@ -13,7 +13,7 @@ import cn.test.model.User;
 import cn.test.util.BaseDaoUtil;
 
 @Repository("userDAOImpl")
-public class UserDAOImpl<T> implements UserDAO<T> {
+public class UserDAOImpl<T> /* extends BaseDAOImpl<T>*/ implements UserDAO<T>{
 
 	@SuppressWarnings("unchecked")
 	protected Class<T> entityClass = BaseDaoUtil.getClassGenricType(getClass());
@@ -21,17 +21,25 @@ public class UserDAOImpl<T> implements UserDAO<T> {
 	@Autowired
 	public SessionFactory sessionFactory;
 
+	@Override
+	public List<T> getUsersById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	/**
 	 * 根据Id查询实体
 	 *
 	 * @param id
 	 */
+	
+	
 	@SuppressWarnings("unchecked")
-	public T getById(String id) {
+	public T get(T t) {
 		System.out.println("232323"+entityClass);
 		T user = null;
 		Session session = sessionFactory.getCurrentSession();
-		List list = session.createQuery("from User where id = :ID").setParameter("ID", id).list();
+		List list = session.createQuery("from User where id = :ID").setParameter("ID", ((User)t).getId()).list();
 		Iterator<T> iterator = list.iterator();
 		while(iterator.hasNext())
 			user = iterator.next();
@@ -53,12 +61,7 @@ public class UserDAOImpl<T> implements UserDAO<T> {
 		// return (T)sessionFactory.getCurrentSession().get(entityClass, id);
 	}*/
 
-	@Override
-	public List<T> getUsersById(String id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public void addUser(T t) {
 		// TODO Auto-generated method stub
@@ -73,28 +76,4 @@ public class UserDAOImpl<T> implements UserDAO<T> {
 
 
 }
-/*
- * package cn.test.dao;
- * 
- * import java.util.Iterator; import java.util.List;
- * 
- * import org.hibernate.Session;
- * 
- * import cn.test.model.User; import cn.test.util.HibernateUtil;
- * 
- * public class UserDAO { public User findUsers(User user) { Session session =
- * HibernateUtil.getSessionFactory().getCurrentSession();
- * session.beginTransaction();
- * System.out.println("11111111111111111111111111"+user.getId()); List list =
- * session.createQuery("from User where id = :ID") .setParameter("ID",
- * user.getId()).list(); Iterator iterator = list.iterator();
- * while(iterator.hasNext()){ User u = (User) iterator.next();
- * user.setLevel(u.getLevel()); user.setPassword(u.getPassword());
- * System.out.println("11111111111111111111111111"+user.getId());
- * System.out.println("11111111111111111111111111"+user.getLevel());
- * System.out.println("11111111111111111111111111"+user.getPassword()); }
- * 
- * session.getTransaction().commit(); return user; }
- * 
- * }
- */
+

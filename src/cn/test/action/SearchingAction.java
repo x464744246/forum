@@ -19,6 +19,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import cn.test.model.Message;
 import cn.test.model.User;
 import cn.test.service.*;
+import cn.test.util.PublicValue;
 
 @Scope("prototype")
 @Controller("searchingAction")
@@ -32,7 +33,7 @@ public class SearchingAction extends ActionSupport {
 	SearchingService searchingService;
 	
 	// 每页列表大小
-	int pagesize = 10;
+	int pagesize = PublicValue.PAGESIZE;
 
 	// 文章列表
 	@Autowired(required = false)
@@ -85,7 +86,7 @@ public class SearchingAction extends ActionSupport {
 		message = searchingService.getMessagesByTitle(keyword, cpage, pagesize);
 		if (cpage < 3)
 			page = 3;
-		else if (cpage > (pagecount - 2))
+		else if (cpage > (pagecount - 2)&&pagecount>=5)
 			page = pagecount - 2;
 		else
 			page = cpage;

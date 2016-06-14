@@ -13,6 +13,12 @@
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
 <link rel="stylesheet" href="assets/css/amazeui.min.css" />
+<link rel="stylesheet"
+	href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script
+	src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
 <style>
 .header {
 	text-align: center;
@@ -49,9 +55,9 @@
 				<div class="am-cf">
 					<input type="submit" name="" value="登 录 "
 						class="am-btn am-btn-primary am-btn-sm am-fl"
-						 onClick="this.form.action='./LoginAction.action'"> <input
+						onClick="this.form.action='./LoginAction.action'"> <input
 						type="submit" name="" value="注 册"
-						class="am-btn am-btn-primary am-btn-sm am-fl"
+						class="am-btn am-btn-primary am-btn-sm am-fl col-md-offset-1"
 						onClick="this.form.action='./RegistAction.action'"> <input
 						type="submit" name="" value="忘记密码 XD"
 						class="am-btn am-btn-default am-btn-sm am-fr">

@@ -29,6 +29,7 @@
 				<value>cn.test.model.User</value>
 				<value>cn.test.model.Message</value>
 				<value>cn.test.model.Reply</value>
+				<value>cn.test.model.MAndR</value>
 			</list>
 		</property>
 		<!-- 定义Hibernate SessionFactory的属性 -->

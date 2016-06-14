@@ -82,7 +82,7 @@
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="./Message_PageAction.action?page=1">首页</a></li>
 				<li><a href="./Message_AddAction.action">添加文章</a></li>
-				<li><a href="#">我的回复</a></li>
+				<li><a href="./MAndRAction.action?page=1">我的回复</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> 更多 <b class="caret"></b>
 			</a>
 					<ul class="dropdown-menu pull-right">

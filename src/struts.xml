@@ -154,6 +154,28 @@
 
 
 		</action>
+		<action name="MAndRAction" class="mAndRAction"
+			method="replypage">
+
+			<result name="success">/my_reply.jsp</result>
+		
+			<result name="logincheck_fail">/login.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="login"></interceptor-ref>
+
+
+		</action>
+		<action name="MAndR_DeleteAction" class="mAndRAction"
+			method="delete">
+
+			<result name="success">/my_reply.jsp</result>
+		
+			<result name="logincheck_fail">/login.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="login"></interceptor-ref>
+
+
+		</action>
 
 	</package>
 </struts>

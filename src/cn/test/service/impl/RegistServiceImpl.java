@@ -24,7 +24,7 @@ public class RegistServiceImpl implements RegistService{
 	@Override
 	public User getUser(User user) {
 		// TODO Auto-generated method stub
-		return (User)this.userdao.getById(user.getId());
+		return (User)this.userdao.get(user);
 	}
 
 }

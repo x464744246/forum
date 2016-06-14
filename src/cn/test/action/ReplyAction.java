@@ -17,6 +17,7 @@ import cn.test.model.Message;
 import cn.test.model.Reply;
 import cn.test.model.User;
 import cn.test.service.ReplyService;
+import cn.test.util.PublicValue;
 
 @Scope("prototype")
 @Controller("replyAction")
@@ -24,7 +25,7 @@ public class ReplyAction {
 
 	private HttpServletRequest request = ServletActionContext.getRequest();
 
-	int pagesize = 10;
+	int pagesize = PublicValue.PAGESIZE;
 
 	@Autowired(required = false)
 	@Qualifier("replyServiceImpl")
@@ -87,7 +88,7 @@ public class ReplyAction {
 
 	public String delete() throws Exception {
 
-		int cpage = 3;
+		int cpage = 1;
 		Message m = (Message) ActionContext.getContext().getSession().get("m");
 		String replyid = request.getParameter("replyid").toString();
 		replyService.deleteReply(replyid);
